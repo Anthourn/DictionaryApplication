@@ -1,0 +1,595 @@
+.App {
+  text-align: center;
+}
+
+ /*  css reset */
+
+ /*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+@font-face {
+  font-family: "InconsolataBold";
+  src: local("InconsolataBold"),
+  url("./fonts/inconsolata/static/Inconsolata-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "InconsolataRegular";
+  src: local("InconsolataRegular"),
+  url("./fonts/inconsolata/static/Inconsolata-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"),
+  url("./fonts/inter/static/Inter-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "InterBold";
+  src: local("InterBold"),
+  url("./fonts/inter/static/Inter-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MonoRegular";
+  src: local("MonoRegular"),
+  url("./fonts/lora/static/Lora-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MonoBold";
+  src: local("MonoBold"),
+  url("./fonts/lora/static/Lora-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MonoBoldItalic";
+  src: local("MonoBoldItalic"),
+  url("./fonts/lora/static/Lora-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-display: swap;
+}
+
+:root {
+  --black900: hsl(0, 0%, 2%);
+  --black800: hsl(0, 0%, 12%);
+  --black700: hsl(0, 0%, 18%);
+  --black600: hsl(0, 0%, 23%);
+
+  --grey500:hsl(0, 0%, 51%);
+  --grey450:hsl(0, 0%, 46%);
+  --grey200: hsl(0, 0%, 91%);
+  --grey100: hsl(0, 0%, 96%);
+
+  --white: hsl(0, 0%, 100%);
+
+  --color-primary: hsl(274, 82%, 60%);
+  --color-secondary: hsl(0,100%,66%);
+
+  --font-mono:  InconsolataRegular;
+  --font-mono-bold:  InconsolataBold;
+  --font-mono-bold-italic: MonoBoldItalic;
+  --font-sans-seriff: InterRegular;
+  --font-sans-seriff-bold: InterBold;
+  --font-seriff: LoraRegular;
+  --font-seriff-bold: LoraBold;
+  --font-seriff-bold-italic: LoraBoldItalic;
+
+}
+/* general styles */
+.seriff{
+font-family: var(--font-seriff);
+
+}
+.sans-seriff{
+  font-family: var(--font-sans-seriff);
+
+}
+
+.mono{
+  font-family: var(--font-mono);
+
+}
+body{
+  height: 100%;
+  width: 100%;
+}
+.body-dark{
+  background-color: var(--black900);
+  color: var(--white);
+}
+.container{
+  padding: 1.5rem;
+
+  text-wrap: wrap;
+  /* padding: 3.6rem; */
+  display: flex;
+  color: var(--black700);
+  flex-direction: column;
+}
+.container-dark{
+  background-color: var(--black900);
+  color: var(--white);
+}
+
+.container-mono{
+  font-family: var(--font-mono);
+}
+.container-seriff{
+  font-family: var(--font-seriff);
+}
+.container-sans-seriff{
+font-family: var(--font-sans-seriff);
+}
+
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 1.75rem;
+}
+.header__dict-icon{
+  width: 1.75344rem;
+}
+.header__custom-select{
+  font-size: 0.875rem;
+}
+.header__controls{
+  display: flex;
+  flex-direction: row;
+}
+.header__custom-select{
+  width: 9rem;
+  padding-right: 1rem;
+  height: 2.5rem;
+  border-right: 1px solid;
+  border-color: var(--grey200) ;
+}
+
+.react-select__menu-list{
+  border-radius: 1rem;
+background: var(--FFFFFF, #FFF);
+box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.10);
+width: 11.4375rem;
+padding: 1.5rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+.react-select__menu-list-dark{
+  color: #FFF;
+  border-radius: 1rem;
+background: var(--black800);
+box-shadow: 0px 5px 30px 0px #A445ED;
+width: 11.4375rem;
+padding: 1.5rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+.react-select-sans-seriff{
+  font-family: var(--font-sans-seriff) !important;
+}
+.react-select-sans-seriff:hover{
+  color:var(--color-primary);
+}
+.react-select-seriff{
+  font-family: var(--font-seriff) !important;
+}
+.react-select-seriff:hover{
+  color:var(--color-primary);
+
+}
+.react-select-mono{
+  font-family: var(--font-mono) !important;
+
+}
+.react-select-mono:hover{
+  font-family: var(--font-mono) !important;
+  color:var(--color-primary);
+}
+.header__dark-mode-toggle{
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: flex-start;
+  padding-top: .5rem;
+  width: fit-content;
+  padding-left: 0;
+  margin-left: 1rem;
+}
+.header__dark-mode-toggle-dark{
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: flex-start;
+  width: fit-content;
+  padding-left: 0;
+  padding-top: .5rem;
+  margin-left: 1rem;
+}
+.search{
+  position: relative;
+  margin-bottom: 1.5rem ;
+
+}
+/* make this change with global font */
+.search__input{
+  width: 100%;
+  border-radius: 1rem;
+  font-family: var(--font-mono-bold);
+  font-size: 1rem;
+  background-color: var(--grey200);
+  color: var(--black700);
+  border: 1px solid;
+  border-color: transparent;
+  padding-left: 1.5rem;
+  height: 3rem;
+  outline: transparent;
+}
+search__input-dark{
+  background-color: var(--black800);
+}
+
+.search__input:focus{
+  border: 1px solid;
+  border-color: var(--color-primary);
+}
+.search__input-error{
+  border: 1px solid;
+  border-color: var(--color-secondary) !important;
+}
+
+
+.search__input[data-icon="search"]::before{
+  content:" ";
+  width:15px;
+  height: 16px;
+  background-image: url("/public/assets/images/icon-search.svg");
+}
+.search__button{
+  position: absolute;
+  right: 1.5rem;
+  border: none;
+  background: transparent;
+  top: 25%;
+}
+
+.title{
+  padding-bottom: 1.83rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.title__main-seriff{
+  font-family: var(--font-seriff-bold);
+  font-size: 2rem ;
+}
+.title__main-mono{
+  font-family: var(--font-sans-mono-bold);
+  font-size: 2rem ;
+
+}
+.title__main-sans-seriff{
+  font-family: var(--font-sans-seriff-bold);
+  font-size: 2rem ;
+}
+.title__pronunciation{
+  color: var(--color-primary);
+  font-size: 1.125rem;
+}
+.title__button-play{
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  height: 3rem;
+  width: 3rem;
+}
+.primary-definition{
+  padding-bottom: 1.94rem;
+}
+.primary-definition__category{
+  padding-bottom: 2.06rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.seperator{
+width: 16.25rem;
+height: 1px;
+background-color: var(--grey200) ;
+align-self: center;
+}
+.primary-definition__mono {
+  font-family: var(--font-mono-bold);
+  font-size: 1.125rem ;
+}
+.primary-definition__seriff {
+  font-family: var(--font-seriff-bold);
+  font-size: 1.125rem ;
+  font-style: italic;
+}
+
+.primary-definition__mono-italic {
+  font-family: var(--font-mono-bold-italic);
+  font-size: 1.125rem ;
+}
+
+.primary-definition ul {
+  list-style: none; 
+}
+.secondary-definition ul {
+  list-style: none; 
+}
+.primary-definition li {
+  margin-left: -1.5em; 
+}
+.secondary-definition li {
+  margin-left: -1.5em; 
+}
+
+.secondary-definition li{
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+}
+
+.primary-definition li{
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+}
+.meaning{
+  color: var(--grey450);
+}
+
+ul li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: var(--color-primary); /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 2em; /* Also needed for space (tweak if needed) */
+  margin-left: -1.3em; 
+  position: relative;
+  top:1.25rem;
+}
+.synonyms{
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.synonym-title{
+  color: var(--grey450);
+
+}
+.synonym-definition{
+  color: var(--color-primary);
+
+}
+.secondary-definition__category{
+  padding-top: 2.06rem ;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.secondary-definition .meaning{
+  padding-top: 1.94rem;
+  padding-bottom: 1.04rem;
+}
+
+.secondary-definition .seperator{
+  margin-top: 2.44rem;
+  margin-bottom: 1.3rem;
+}
+.footer{
+  padding-bottom: 2.7rem;
+}
+.footer__source{
+  display: block;
+  text-decoration: none;
+  text-decoration: underline;
+  color: var(--grey450) ;
+  font-size: 0.875rem;
+}
+.footer__link{
+  display: inline-block;
+  text-decoration: none;
+  text-decoration: underline;
+  font-size: 0.875rem;
+}
+.footer__external{
+  display: inline-block;
+  background: transparent;
+  padding: 0;
+  margin-left: .5rem;
+  border: none;
+}
+.error{
+  text-align: center;
+  height: 100vh;
+}
+.error__emoji{
+  font-size: 4rem;
+  margin-bottom: 2.75rem;
+}
+.error__title{
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.error__copy{
+  font-size: 1.125rem;
+  color: var(--grey450);
+}
+.error-msg{
+  color: var(--color-secondary);
+  font-size: 1.25rem;
+}
+.bold-sans-seriff{
+  font-family: var(--font-sans-seriff-bold);
+  font-size: 1.125rem ;
+}
+.bold-seriff{
+  font-family: var(--font-seriff-bold);
+  font-size: 1.125rem ;
+
+}
+.bold-mono{
+  font-family: var(--font-mono-bold);
+  font-size: 1.125rem ;
+}
+@media screen and (min-width: 700px) {
+  .container{
+    padding: 2.44rem ;
+  }
+  .header__dict-icon{
+    width: 2rem;
+  }
+  .header__custom-select{
+    font-size: 1.125rem;
+  }
+  .search__input{
+    font-size: 1.125rem;
+  }
+
+  .title__main-seriff{
+    font-size: 4rem ;
+  }
+  .title__main-mono{
+    font-size: 4rem ;
+  
+  }
+  .title__main-sans-seriff{
+    font-size: 4rem ;
+  }
+  .title__pronunciation{
+    font-size: 1.5rem;
+  }
+  .title__button-play{
+    height: 4.6875rem;
+    width: 4.6875rem;
+    align-self: center;
+  }
+  .title__button{
+    align-self: center;
+  }
+  .seperator{
+    width: 38rem;
+  }
+  .title{
+    padding-bottom: 2.4rem;
+  }
+  .bold-sans-seriff{
+    font-family: var(--font-sans-seriff-bold);
+    font-size: 1.5rem ;
+  }
+  .bold-seriff{
+    font-family: var(--font-seriff-bold);
+    font-size: 1.5rem ;
+  
+  }
+  .bold-mono{
+    font-family: var(--font-mono-bold);
+    font-size: 1.5rem ;
+  }
+
+  
+  .secondary-definition li{
+    font-size: 1.125rem;
+  }
+  
+  .primary-definition li{
+    font-size: 1.125rem;
+  }
+  .meaning{
+    font-size:1.125rem;
+  }
+  
+
+  .synonym-title{
+    font-size: 1.125rem;
+  
+  }
+  .synonym-definition{
+    font-size: 1.125rem;
+  }
+
+  .secondary-definition__category{
+    padding-top: 2.69rem ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .secondary-definition .meaning{
+    padding-top: 1.94rem;
+    padding-bottom: 1.04rem;
+  }
+  
+  .secondary-definition .top-seperator{
+    margin-top: 0;
+    align-self: center;
+    margin-bottom: 0;
+  }
+  .secondary-definition .bottom-seperator{
+    margin-top: 2.4rem;
+    align-self: center;
+  }
+  .footer{
+    padding-bottom: 4.34rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .container{
+    padding-top: 3.6rem ;
+    margin-left: auto;
+    margin-right: auto;
+    width: 49.6rem;
+  }
+}
+.footer__link, .footer__link:visited, .footer__link:hover, .footer__link:active {
+  color: inherit;
+}
