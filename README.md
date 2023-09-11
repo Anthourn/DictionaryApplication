@@ -52,5 +52,5 @@ Users should be able to:
 ### Issues
 
 - I used a different API that does not have audio links, therefore the play button is non functional
-- There is a bug around autocorrected searchs, for example, 'Emo' will return a definition, "dsafyidbfisd" will return the error state
+- There is a bug around autocorrected searchs, for example, 'Emo' will return a definition, "dsafyidbfisd" will return the error state,
   but "emop" will break the page as the API will auto correct it to EMO but not give the JSON required.
