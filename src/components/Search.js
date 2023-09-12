@@ -11,6 +11,7 @@ const Search = () => {
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
     if (formJson.searchTerm.length > 0) {
+      setErrorState(false);
       dispatch(update(formJson.searchTerm));
     } else {
       setErrorState(true);
