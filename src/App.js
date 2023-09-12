@@ -11,14 +11,12 @@ import { useEffect, useState } from "react";
 import Error from "./components/error";
 
 function App() {
-  const searchData = useSelector((state) => state.data.value);
   const font = useSelector((state) => state.font.value);
   const darkmode = useSelector((state) => state.darkmode.value);
   const input = useSelector((state) => state.input.value);
   const [data, setData] = useState(definition);
   const API_KEY = process.env.REACT_APP_API_KEY;
   useEffect(() => {
-    console.log("running");
     const dataFetch = async () => {
       const response = await fetch(
         `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${input}?key=${API_KEY}`
@@ -28,7 +26,6 @@ function App() {
     };
     dataFetch().catch(console.error);
   }, [input]);
-  console.log("data", data);
   const routeContent = () => {
     // account for api auto correcting instead of returning undefined
     if (data[0] === undefined || typeof data[0] === "string") {
@@ -36,7 +33,6 @@ function App() {
     } else {
       return (
         <main>
-          {data[0].fl}
           {data[0].fl ? (
             <>
               <Title data={data[0]} /> <PrimaryDefinition data={data[0]} />
